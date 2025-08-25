@@ -1,0 +1,30 @@
+.card{
+    width: 300px;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+    background-color: beige;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 16px;
+    transition: transform 0.2s ease-in-out;
+    height: 300px;
+}
+.card:hover{
+    transform: translateY(-5px);
+}
+.card-image{
+    width: 300px;
+    object-fit:cover;
+    height:180px;
+}
+.card-body{
+    padding: 10px;
+    background-color:burlywood;
+    color: brown;
+}
+.card-title{
+    font-family:cursive;
+}
+.card-content{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
