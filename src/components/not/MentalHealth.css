@@ -12,6 +12,36 @@
     margin-left: 30px;
     border-radius: 10px; 
     padding: 5px;  
-    color: rgb(152, 120, 144);
+    color: rgb(143, 90, 129);
     background-color: rgb(140, 191, 195);  
+}
+.Header{
+    margin-top: 10px;
+    display: flex;
+    color: rgb(197, 229, 81);
+    background-color: rgb(176, 95, 95);
+    width: 600px;
+    border-radius: 10px;
+    justify-content: space-between;
+    font-family: 'Segoe Script', cursive;
+    font-weight: bold;
+    box-shadow: 0px 6px 16px rgb(188, 121, 121, 0.2);
+}
+.Header .element{
+    padding-left: 10px;
+    padding-right: 20px;
+}
+h3{
+    color: rgb(31, 123, 123);
+    padding-left: 30px;
+    padding-top: 20px;
+    font-family: 'Segoe Script', cursive;
+} 
+.chat-bubble{
+    background: #7797b5;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 12px;
+    border-bottom-left-radius: 5px;
+    max-width: fit-content;
 }

@@ -1,18 +1,19 @@
 import './MentalHealth.css'
 import '../../App.css';  // goes two folders up to reach App.css
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MentalHealth = () => {
 
-    const [ data, setData] = useState([]);
+    const [ data, setData ] = useState([]);
+    const [ solution, setSolution ] = useState([]);
+
 
 //     useEffect(() => {
 //     window.location.href = 'https://www.google.com';
 //   }, []);
 
-    const prompt=(option)=>{
-        console.log("Prompt clicked with option:", option);
-        fetch("https://your-api-url.com") 
+    useEffect(() => {
+        fetch("http://localhost:9002/mentalhealth/showprompts") 
       .then(response => response.json())
       .then(result => {
         // Expecting result to be an array of strings
@@ -20,25 +21,36 @@ const MentalHealth = () => {
         setData(result);
       })
       .catch(error => console.error("Fetch error:", error));
-    } 
+    }, []);
 
-    //navigate to 
+    const prompt = (item) => {
+        fetch(`http://localhost:9002/mentalhealth/`+ item) 
+        .then(response => response.text())
+      .then(result => {
+        console.log(result);
+        setSolution(result);
+      })
+      .catch(error => console.error("Fetch error:", error));
+    }
 
     return (
         <div className='div'>
+            <div className='Header'>
+                <p className='element'>Mental Health Chatbot</p>
+                <p className='element'>❤️</p>
+            </div>
             <div className="chatbot">
-                <button className='button' onClick={() => prompt(1)}>Prompt 1: </button>
-                <br/>
-                <button className='button' onClick={() => prompt(2)}>Prompt 2: </button>
-                <br/>
-                <button className='button' onClick={() => prompt(3)}>Prompt 3: </button>
+                <h3>How are you feeling today?</h3>
+
                 <ul>
                 {data && data.length > 0 ? (
-                    data.map((item, index) => <li key={index}>{item}</li>)
+                    data.map((item, index) => <li><button className='button' key={index} onClick={() => prompt(item)}>{item}</button></li>)
                     ) : (
                     <li>No data yet.</li>
                     )}
+                    <p>{solution}</p>
                 </ul>
+
             </div>
         </div>
     )
